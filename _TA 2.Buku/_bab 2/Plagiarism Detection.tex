@@ -1,0 +1,31 @@
+\documentclass[../Proposal.tex]{subfiles}
+ 
+\begin{document}
+	\section{\textit{Plagiarism Detection}}
+	\textit{Plagiarism Detection} adalah solusi untuk masalah \textit{plagiarism}. Tujuan utama dari \textit{Plagiarism Detection} ini adalah mengidentifikasi suatu dokumen yang disebut dengan \textit{suspicious-document}, apakah dokumen tersebut mempunyai teks atau bagian yang diambil dari satu atau beberapa dokumen lain (\textit{source-document}). Dan membuktikan apabila terdapat teks yang diambil dari \textit{source-document} di \textit{suspicious-document}. Gambar \ref{fig:alurplagdect} menunjukan alur \textit{Plagiarism Detection} secara umum\cite{pan-task-2014,overview6}.
+	
+	\begin{figure}[H]
+		\includegraphics[width=1\linewidth]{"../images/Plagiarism Detection Generic"}
+		\caption{Alur keseluruhan\textit{Plagiarism Detection}\cite{overview6}}
+		\label{fig:alurplagdect}
+	\end{figure}
+	
+		\subsection{\textit{Source Retrieval}}
+		\textit{Source Retrieval} merupakan \textit{task} pertama untuk \textit{Plagiarism Detection}. Pada tahap ini suatu dokumen akan diuji dengan cara melakukan pencarian perkalimat dari dokumen yang diuji. Kalimat yang diuji akan dimasukan kedalam \textit{query} mesin pencarian yang berisikan jurnal atau dokumen sejenis. Kemudian apabila ada kemiripan dengan suatu dokumen, maka akan dihasilkan informasi bahwa dokumen yang diuji terindikasi plagiat dengan dokumen yang ditemukan\cite{information-retrieval}. Informasi atau pasangan dokumen ini disebut juga dengan \textit{pair}.
+		
+		\subsection{\textit{Text Alignment}}
+		\textit{Text Alignment} merupakan pendekatan yang dapat menguji \textit{pair} yang didapat dari tahap \textit{Source Retrieval}. Pada tahap ini \textit{pair} dari proses \textit{Source Retrieval} akan diuji, apakah dokumen tersebut terbukti memplagiat dokumen sumber atau tidak dengan cara mengekstrasi ciri yang ada pada dokumen yang terindikasi, dan dokumen sumber yang kemudian diolah dengan metode khusus. \\
+
+		\noindent \textit{Plagiarism Detection} dengan pendekatan \textit{Text Alignment} ini mempunyai 3 tahapan dasar, yaitu :
+
+		\begin{enumerate}
+			\item \textit{Seeding} \\
+			Terdapat pasangan \textit{suspicious} dan \textit{source}, setiap elemen yang sama antar kedua dokumen tersebut disebut dengan \textit{seed}. \textit{Seed} ini dapat berupa fitur yang diekstrak dari kedua dokumen.
+
+			\item \textit{Extension} \\
+			\textit{Seed} yang ada akan diolah dengan dijajarkan dengan \textit{seed} lainnya hingga mendapatkan bagian yang dijadikan sebagai bagian yang diduga plagiat.
+
+			\item \textit{Filtering} \\
+			Menghapus kumpulan \textit{seed} yang dianggap tidak memenuhi kriteria bagian yang termasuk plagiat. Sedangkan kumpulan \textit{seed} sisanya, dianggap menjadi bagian yang terbukti plagiat.
+		\end{enumerate}
+\end{document}

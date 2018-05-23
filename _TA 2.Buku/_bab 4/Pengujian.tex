@@ -1,0 +1,21 @@
+\documentclass[../Book.tex]{subfiles}
+ 
+\begin{document}
+\section{Pengujian}
+Pengujian dilakukan pada \textit{level} karakter dan dokumen dengan menggunakan parameter berikut dimana pemilihan nilainya sudah dijelaskan pada Bab 3 : 
+
+\begin{enumerate}
+	\item \textit{Relevance Threshold} : $\varrho \leq 4$\\
+	\textit{Relevance Threshold} yang merupakan batas jumlah kardinalitas suatu fitur dianggap relevan.
+	
+	\item \textit{Distance} : $dist(P_{1} \times Q_{1},P_{2} \times Q_{2}) \leq 7$\\
+	Jarak maksimal yang digunakan untuk \textit{merge} 2 buah \textit{passage reference}, dan juga batas terminasi \textit{clustering}.
+	
+	\item \textit{Plagiarism Case} : $\tau \geq 15$ \\
+	Jumlah minimal \textit{passage reference} pada suatu \textit{cluster} untuk dianggap sebagai bagian yang di plagiat.
+\end{enumerate}
+
+\noindent Hasil pengujian dibagi menjadi 2 jenis, yaitu \textit{No Plagiarism} dan \textit{Plagiarism}. Dimana pengujian \textit{No Plagiarism} terdiri dari \textit{datasets} \textit{No Plagiarism}, sedangkan \textit{Plagiarism} terdiri dari \textit{No Obfuscation, Random Obfuscation, Translation Obfuscation}, dan \textit{Summary Obfuscation}. Pembagian ini dilakukan karena untuk kasus \textit{No Plagiarism} ada kemungkinan pembagian dengan 0. Sehingga perhitungan dilakukan dengan cara melihat apakah pada ada bagian yang terindikasi plagiat. Bila ada, maka sistem dianggap gagal mengenali dokumen. \\
+
+
+\end{document}

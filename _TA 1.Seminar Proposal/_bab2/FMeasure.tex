@@ -1,0 +1,75 @@
+\documentclass[../Proposal.tex]{subfiles}
+ 
+\begin{document}
+	\section{\textit{Precision, Recall, F-Measure}}
+	\textit{Precision, Recall, F-Measure} merupakan metode pengukuran akurasi dari suatu data. Metode ini menggunakan tabel kebenaran\cite{fmeasure}. Tabel \ref{tabel-kebenaran} menunjukan sebuah tabel kebenaran yang akan digunakan.
+	
+	\begin{table}[h!]
+		\centering
+		\caption{Tabel Kebenaran}
+		\begin{tabular}{ | c | c | c | }
+			\hline
+			& \textbf{Correct} & \textbf{Not Correct} \\ 
+			\hline \textbf{Selected} & True Positive (TP) & False Positive (FP) \\  
+			\hline \textbf{Not Selected} & False Negative (FN) & True Negative (TN) \\
+			\hline
+		\end{tabular}
+		\label{tabel-kebenaran}
+	\end{table}
+	
+	\noindent Sebagai contoh, pada kasus pengklasifikasian ke golongan A, nilai yang ada adalah sebagai berikut :
+	
+	\begin{enumerate}
+		\item \textbf{True Positive} : Suatu data diklasifikasikan oleh sistem sebagai golongan A, dan tujuannya data tersebut memang seharusnya digolongkan ke golongan A.
+		\item \textbf{False Positive} : Suatu data diklasifikasikan oleh sistem sebagai golongan A, dan tujuannya data tersebut \textit{tidak} seharusnya digolongkan ke golongan A.
+		\item \textbf{False Negative} : Suatu data diklasifikan oleh sistem sebagai \textbf{bukan} golongan A, tapi tujuan data tersebut seharusnya digolongkan ke golongan A.
+		\item \textbf{True Negative} : Suatu data diklasifikan oleh sistem sebagai \textbf{bukan} golongan A, dan tujuan data tersebut dipilih sebagai \textbf{bukan} golongan A.
+	\end{enumerate}
+	
+	\noindent Dimana nantinya akurasi akan dihitung dengan persamaan : \\
+	
+	\begin{center}
+		\centering
+		\begin{equation}
+		Akurasi = \frac{TP + TN}{TP + FP + FN + TN}
+		\end{equation}
+		\label{eq:akurasi}
+	\end{center}
+	
+	
+	\noindent Sedangkan \textbf{\textit{Precision}} merupakan persentase data yang di klasifikasikan secara benar (\textbf{\textit{Correct}}). 
+	
+	\begin{center}
+		\centering
+		\begin{equation}
+		Precision = \frac{TP}{TP + FN}
+		\end{equation}
+	\end{center}
+	
+	\noindent Sedangkan \textbf{\textit{Recall}} merupakan jumlah data yang \textbf{benar} di klasifikasikan secara benar.
+	
+	\begin{center}
+		\centering
+		\begin{equation}
+		Recall = \frac{TP}{TP + FP}
+		\end{equation}
+	\end{center}
+	
+	\noindent Sedangkan \textbf{\textit{F-Measure}} adalah metode untuk mencari nilai tengah antara \textit{Precision} dan \textit{Recall} untuk meingkatkan perfomansi klasifikasi agar sistem menghasilkan akurasi yang lebih baik, dibandingkan menggunakan \textit{Precision} atau \textit{Recall} saja. Adapun untuk mendapatkan nilai \textit{F-Measure} ini adalah sebagai berikut :
+	
+	\begin{center}
+		\centering
+		\begin{equation}
+		F = \frac{1}{\alpha \frac{1}{P} + (1-\alpha) \frac{1}{R}} = \frac{(\beta^2 + 1)PR}{\beta^2P+R}
+		\end{equation}
+	\end{center}
+	
+	\noindent Namun biasanya untuk perhitungan, digunakan \textit{blanced F1-Measure}. Dimana nilai \begin{math}\beta = 1\end{math} dan \begin{math}\alpha = \frac{1}{2}\end{math}. Sehingga persamaan perhitungan \textit{F-Measure} menjadi : 
+	
+	\begin{center}
+		\centering
+		\begin{equation}
+		F = \frac{2PR}{P+R}
+		\end{equation}
+	\end{center}
+\end{document}

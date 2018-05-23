@@ -1,0 +1,294 @@
+\documentclass[12pt,a4paper,oneside,reqno]{report}
+
+\usepackage{etex}
+
+\usepackage[a4paper,left=4cm,right=3cm,top=3cm,bottom=3cm]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{ucs}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{makeidx}
+\usepackage{graphicx}
+\usepackage{anyfontsize}
+\usepackage{setspace}
+\usepackage{multirow}
+\usepackage[table,xcdraw]{xcolor}
+\usepackage{url}
+\usepackage[bahasa]{babel}
+\usepackage{graphicx}
+\usepackage{color,soul}
+\usepackage{titlesec}
+\usepackage{lipsum}
+\usepackage[subpreambles=true]{standalone}
+\usepackage{subfiles}
+\usepackage{pdfpages}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{floatrow}
+\floatsetup[figure]{capposition=bottom}
+\floatsetup[subfigure]{capposition=bottom}
+\floatsetup[table]{capposition=top}
+\usepackage{ragged2e}
+\usepackage{caption}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{mwe}
+\usepackage{slashbox}
+\usepackage[tableposition=top]{caption}
+\usepackage{longtable}
+\usepackage{xcolor}
+\usepackage{pgfplots}
+\usepackage{tikz}
+\usepackage{pgf-pie}
+
+\graphicspath{{images/}}
+
+\definecolor{bblue}{HTML}{4F81BD}
+\definecolor{rred}{HTML}{C0504D}
+\definecolor{ggreen}{HTML}{9BBB59}
+\definecolor{ppurple}{HTML}{9F4C7C}
+
+\titleformat{\chapter}[block]
+{\centering\fontsize{16}{1}\huge\bfseries}{Bab \thechapter.}{0.1em}{\Huge}
+
+\titleformat{\section}[block]
+{\fontsize{14}{1}\bfseries}{\thesection.}{0.1em}{}
+
+\addto{\captionsbahasa}{\renewcommand{\abstractname}{Abstrak}}
+\addto{\captionsbahasa}{\renewcommand{\bibname}{Daftar Pustaka}}
+
+\providecommand{\katakunci}[1]{\textbf{\textit{Kata kunci:}} #1}
+\providecommand{\katakunciENG}[1]{\textbf{\textit{Keyword(s):}} #1}
+\providecommand{\keywords}[1]{\textbf{\textit{Keywords:}} #1}
+\providecommand{\judulta}{\textbf{Implementasi Algoritma \textit{Merging Context Seeds} untuk \textit{Plagiarism Detection}}}
+\providecommand{\tglefektif}{Bandung, 8 Juni 2017}
+
+\newcommand{\source}[1]{\caption*{Sumber: {#1}} }
+
+\newcommand{\singlesignature}[2]{
+	\hfill
+	\parbox{6cm}{
+	\tglefektif{} \\
+	Yang membuat pernyataan,\\
+	\\[3cm]
+	#1\\
+	NIM. #2\\[1cm]
+	}
+}
+
+\newcommand{\statekatapengantar}[2]{
+	\hfill
+	\parbox{6cm}{
+		\tglefektif{} \\
+		\\[2cm]
+		#1\\
+		NIM. #2\\[1cm]
+	}
+}
+
+\newcommand{\middlesignature}[2]{
+
+	\parbox{7cm}{
+	\centering
+		Mengesahkan, \\
+		Ketua Program Studi \\
+		Sarjana Teknik Informatika \\[3cm]
+
+		\rule{0.5\linewidth}{1pt} \\
+		#1\\
+		#2
+	}
+}
+
+\newcommand{\doublesignature}[6]{
+	\parbox{\linewidth}{
+		\parbox{0.48\linewidth}{
+			\centering
+			#1
+		}
+		\hfill
+		\parbox{0.48\linewidth}{
+			\centering
+			#2
+		}
+	}\\[3cm]
+	\parbox{\linewidth}{
+		\parbox{0.48\linewidth}{
+			\centering
+			\rule{0.5\linewidth}{1pt}\\
+			#3\\
+			#4 
+		}
+		\hfill
+		\parbox{0.48\linewidth}{
+			\centering
+			\rule{0.5\linewidth}{1pt}\\
+			#5\\
+			#6
+		}
+	}
+}
+
+\newcommand{\captionabove}[2][]{%
+    \vskip-\abovecaptionskip
+    \vskip+\belowcaptionskip
+    \ifx\@nnil#1\@nnil
+        \caption{#2}%
+    \else
+        \caption[#1]{#2}%
+    \fi
+    \vskip+\abovecaptionskip
+    \vskip-\belowcaptionskip
+}
+
+\usepackage{tocloft}
+	\cftsetindents{table}{0em}{5em}
+	\renewcommand\cfttabpresnum{Tabel }
+	
+	\cftsetindents{fig}{0em}{6em}
+	\renewcommand\cftfigpresnum{Gambar }
+	
+
+\begin{document}
+
+	%Cover
+	\subfile{_other/"Cover"}
+
+	%Lembar Pernyataan
+	\thispagestyle{empty}
+	\subfile{_other/"Lembar Pernyataan"}
+	\addcontentsline{toc}{section}{Lembar Pernyataan}%
+	\newpage
+
+	%Lembar Pengesahan
+	\thispagestyle{empty}
+	\subfile{_other/"Lembar Pengesahan"}
+	\addcontentsline{toc}{section}{Lembar Pengesahan}%
+
+
+\pagenumbering{roman}
+\setcounter{page}{1}
+
+	%Abstrak
+	\subfile{_other/Abstrak}
+	\addcontentsline{toc}{section}{Abstrak}%
+	\newpage
+
+	%Abstrak
+	\subfile{_other/Abstract}
+	\addcontentsline{toc}{section}{Abstract}%
+	\newpage
+
+	%Lembar Persembahan
+	\subfile{_other/"Lembar Persembahan"}
+	\addcontentsline{toc}{section}{Lembar Persembahan}%
+	\newpage
+
+	%Kata Pengantar
+	\subfile{_other/"Kata Pengantar"}
+	\addcontentsline{toc}{section}{Kata Pengantar}%
+
+	%Daftar Isi
+	\newpage
+	\tableofcontents
+	\addcontentsline{toc}{section}{Daftar Isi}%
+
+	%Daftar Gambar
+	\newpage
+	\listoffigures
+	\addcontentsline{toc}{section}{Daftar Gambar}%
+
+	%Daftar Tabel
+	\newpage
+	\listoftables
+	\addcontentsline{toc}{section}{Daftar Tabel}%
+
+	%Daftar Istilah
+	\newpage
+	\begin{center}
+		{ \fontsize{16}{1}\huge \bfseries Daftar Istilah}
+		\addcontentsline{toc}{section}{Daftar Istilah}%
+	\end{center}
+	\subfile{"_other/Daftar Istilah"}
+	
+
+	%Pendahuluan - Bab 1
+	\chapter{Pendahuluan}
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+		%Latar Belakang
+		\subfile{"_bab 1/Latar Belakang"}
+		%Perumusan Masalah
+		\subfile{"_bab 1/Rumusan Masalah"}
+		%Batasan Masalah
+		\subfile{"_bab 1/Batasan Masalah"}
+		%Tujuan
+		\subfile{"_bab 1/Tujuan"}
+		%Metodologi Penyelesaian Masalah
+		\subfile{"_bab 1/Metedeologi"}
+		%Sistematika Penulisan
+
+	%Studi Literatur - Bab 2
+	\chapter{Studi Literatur}
+
+		%Plagiarism
+		\subfile{"_bab 2/Plagiarism"}
+		%Plagiarism Detection
+		\subfile{"_bab 2/Plagiarism Detection"}
+		%Skip Word BIgram
+		\subfile{"_bab 2/Skipword Bigram"}
+		%Merging Context Seeds
+		\subfile{"_bab 2/Merging Context Seeds"}
+		%Single Linkage Clustering
+		\subfile{"_bab 2/Single Linkage Clustering"}
+		%Dataset
+		\subfile{"_bab 2/Dataset"}
+		%Perfomansi
+		\subfile{"_bab 2/Perfomansi"}
+
+	%Rancangan Sistem - Bab 3
+	\chapter{Rancangan Sistem}
+		%Gambaran Umum
+		\subfile{"_bab 3/Gambaran Umum Sistem"}
+		%Analisis Kebutuhan Sistem
+		\subfile{"_bab 3/Analisis Kebutuhan Sistem"}
+		%Perancangan Sistem
+		\subfile{"_bab 3/Perancangan Sistem"}
+		%Pengujian Sistem
+		%\subfile{"_bab 3/Pengujian Sistem"}
+
+	%Pengujian dan Analisis
+	\chapter{Pengujian dan Analisis}
+		%Tujuan Pengujian
+		\subfile{"_bab 4/Tujuan Pengujian"}
+		%Pengujian 
+		\subfile{"_bab 4/Pengujian"}
+		%Pembanding
+		\subfile{"_bab 4/Pembanding"}
+		%Evaluasi Hasil
+		\subfile{"_bab 4/Evaluasi Hasil"}
+		%Analisis Hasil
+		\subfile{"_bab 4/Analisis Hasil"}
+
+	%Kesimpulan dan Saran
+	\chapter{Kesimpulan}
+		%Kesimpulan
+		\subfile{"_bab 5/Kesimpulan"}
+		%Kesimpulan
+		\subfile{"_bab 5/Saran"}
+
+	%Daftar Pustaka
+	\bibliography{reference-ta}{}
+	\bibliographystyle{unsrturl}
+			
+	%Lampiran
+	\newpage
+	\begin{center}
+		{\center \fontsize{16}{1}\huge \bfseries Lampiran}
+		\addcontentsline{toc}{part}{Lampiran}%
+	\end{center}
+	\subfile{"_other/Lampiran"}	
+	
+\end{document}

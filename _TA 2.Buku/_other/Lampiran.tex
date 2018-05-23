@@ -1,0 +1,75 @@
+\documentclass[../Proposal.tex]{subfiles}
+ 
+\begin{document}
+	% Please add the following required packages to your document preamble:
+	% \usepackage{multirow}
+	% Please add the following required packages to your document preamble:
+	% \usepackage{multirow}
+	Tabel \ref{lamp1} hasil evaluasi level karakter pada seluruh tipe plagiat.
+	
+	% Please add the following required packages to your document preamble:
+	% \usepackage{multirow}
+	\begin{table}[H]
+		\centering
+		\resizebox{1.1\textwidth}{!}{ 
+			\caption{Lampiran perfomansi - 1}
+			\label{lamp1}
+		\begin{tabular}{|l|l|llllll}
+			\hline
+			\multicolumn{1}{|c|}{\multirow{2}{*}{Tipe}} & \multicolumn{4}{c|}{Evaluasi Level Karakter}                                                                             & \multicolumn{3}{c|}{Evaluasi Level Karakter}                                                           \\ \cline{2-8} 
+			\multicolumn{1}{|c|}{}                      & \multicolumn{1}{c|}{TP} & \multicolumn{1}{c|}{FP}      & \multicolumn{1}{c|}{FN}      & \multicolumn{1}{c|}{TN}          & \multicolumn{1}{c|}{TP \%}       & \multicolumn{1}{c|}{FP \%}       & \multicolumn{1}{c|}{FN \%}       \\ \hline
+			No Plagiarism                               & 0                       & \multicolumn{1}{l|}{333488}  & \multicolumn{1}{l|}{0}       & \multicolumn{1}{l|}{27700777987} & \multicolumn{1}{l|}{0}           & \multicolumn{1}{l|}{100}         & \multicolumn{1}{l|}{0}           \\ \hline
+			No Obfuscation                              & 2232012                 & \multicolumn{1}{l|}{2498768} & \multicolumn{1}{l|}{331266}  & \multicolumn{1}{l|}{83780690919} & \multicolumn{1}{l|}{44.09308015} & \multicolumn{1}{l|}{49.36280705} & \multicolumn{1}{l|}{6.544112795} \\ \hline
+			Random Obfuscation                          & 1491462                 & \multicolumn{1}{l|}{887130}  & \multicolumn{1}{l|}{917400}  & \multicolumn{1}{l|}{70619313053} & \multicolumn{1}{l|}{45.25077731} & \multicolumn{1}{l|}{26.91541727} & \multicolumn{1}{l|}{27.83380542} \\ \hline
+			Translation Obfuscation                     & 1722584                 & \multicolumn{1}{l|}{3018878} & \multicolumn{1}{l|}{901592}  & \multicolumn{1}{l|}{1.0603E+11}  & \multicolumn{1}{l|}{30.52574014} & \multicolumn{1}{l|}{53.49723749} & \multicolumn{1}{l|}{15.97702237} \\ \hline
+			Summary Obfuscation                         & 243084                  & \multicolumn{1}{l|}{39698}   & \multicolumn{1}{l|}{2027578} & \multicolumn{1}{l|}{32991195514} & \multicolumn{1}{l|}{10.52147717} & \multicolumn{1}{l|}{1.718260358} & \multicolumn{1}{l|}{87.76026247} \\ \hline
+			Jumlah                                      & 5689142                 & \multicolumn{1}{l|}{6777962} & \multicolumn{1}{l|}{4177836} & \multicolumn{1}{l|}{3.21122E+11} &                                  &                                  &                                  \\ \cline{1-5}
+			Precision                                   & 0.577                   &                              &                              &                                  &                                  &                                  &                                  \\ \cline{1-2}
+			Recall                                      & 0.456                   &                              &                              &                                  &                                  &                                  &                                  \\ \cline{1-2}
+			F1-measure                                  & 0.509                   &                              &                              &                                  &                                  &                                  &                                  \\ \cline{1-2}
+		\end{tabular}
+	}
+	\end{table}
+
+	\noindent Tabel \ref{lamp2} perhitungan nilai \textit{Percision, Recall,} dan \textit{F1}.
+	
+	% Please add the following required packages to your document preamble:
+	% \usepackage{multirow}
+	\begin{table}[H]
+			\centering
+			\resizebox{1.2\textwidth}{!}{ 
+				\caption{Lampiran perfomansi - 2}
+				\label{lamp2}
+		\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|l|l|l|ll}
+			\hline
+			\multicolumn{1}{|c|}{\multirow{2}{*}{Tipe}} & \multicolumn{3}{c|}{Evaluasi Level Karakter}                                           & \multicolumn{3}{c|}{Rata-rata Perkelas}                                                & \multicolumn{3}{c|}{Max}                                                               & \multicolumn{3}{c|}{Min}                                                               & \multicolumn{1}{c|}{\multirow{2}{*}{Jumlah Data}} & \multicolumn{1}{c|}{\multirow{2}{*}{/}} \\ \cline{2-13}
+			\multicolumn{1}{|c|}{}                      & \multicolumn{1}{c|}{Precision} & \multicolumn{1}{c|}{Recall} & \multicolumn{1}{c|}{F1} & \multicolumn{1}{c|}{Precision} & \multicolumn{1}{c|}{Recall} & \multicolumn{1}{c|}{F1} & \multicolumn{1}{c|}{Precision} & \multicolumn{1}{c|}{Recall} & \multicolumn{1}{c|}{F1} & \multicolumn{1}{c|}{Precision} & \multicolumn{1}{c|}{Recall} & \multicolumn{1}{c|}{F1} & \multicolumn{1}{c|}{}                             & \multicolumn{1}{c|}{}                   \\ \hline
+			No Plagiarism                               & \#DIV/0!                       & 0                           & \#DIV/0!                & 0                              & 0                           & 0                       & 0                              & 0                           & 0                       & 0                              & 0                           & 0                       & \multicolumn{1}{l|}{1000}                         & \multicolumn{1}{l|}{1000}               \\ \hline
+			No Obfuscation                              & 0.871                          & 0.472                       & 0.612                   & 0.863                          & 0.705                       & 0.741                   & 1.000                          & 1.000                       & 0.998                   & 0                              & 0                           & 0                       & \multicolumn{1}{l|}{952}                          & \multicolumn{1}{l|}{1000}               \\ \hline
+			Random Obfuscation                          & 0.619                          & 0.627                       & 0.623                   & 0.610                          & 0.708                       & 0.626                   & 1.000                          & 1.000                       & 0.990                   & 0                              & 0                           & 0                       & \multicolumn{1}{l|}{998}                          & \multicolumn{1}{l|}{1000}               \\ \hline
+			Translation Obfuscation                     & 0.656                          & 0.363                       & 0.468                   & 0.676                          & 0.677                       & 0.634                   & 1.000                          & 1.000                       & 0.998                   & 0                              & 0                           & 0                       & \multicolumn{1}{l|}{992}                          & \multicolumn{1}{l|}{1000}               \\ \hline
+			Summary Obfuscation                         & 0.107                          & 0.860                       & 0.190                   & 0.025                          & 0.110                       & 0.036                   & 0.937                          & 1.000                       & 0.967                   & 0                              & 0                           & 0                       & \multicolumn{1}{l|}{1185}                         & \multicolumn{1}{l|}{1185}               \\ \hline
+			\textbf{Rata-rata}                          & 0.563                          & 0.580                       & 0.473                   & 0.543                          & 0.550                       & 0.510                   & 0.984                          & 1.000                       & 0.988                   & 0.000                          & 0.000                       & 0.000                   &                                                   &                                         \\ \cline{1-13}
+		\end{tabular}
+	}
+	\end{table}
+
+
+	% Please add the following required packages to your document preamble:
+	% \usepackage{multirow}
+	\noindent Tabel \ref{lamp3} jumlah deteksi plagiat pada tipe plagiat \textit{No Plagiarism} dari 300 data. 
+	
+	\begin{table}[H]
+		\centering
+		
+		\caption{Lampiran Perfomansi - 3}
+		\label{lamp3}
+		\begin{tabular}{|l|l|l|}
+			\hline
+			\multicolumn{1}{|c|}{No Plagiarism} & \multicolumn{1}{c|}{Detected} & \multicolumn{1}{c|}{\%} \\ \hline
+			1000                                & 40                            & 96                      \\ \hline
+		\end{tabular}
+	\end{table}
+	
+
+\end{document}

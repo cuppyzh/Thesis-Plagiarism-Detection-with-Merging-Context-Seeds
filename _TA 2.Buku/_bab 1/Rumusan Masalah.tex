@@ -1,0 +1,24 @@
+\documentclass[../Book, Implementasi Algoritma Merging Context Seeds untuk Plagiarism Detection.tex]{subfiles}
+ 
+\begin{document}
+	\section{Rumusan Masalah}
+
+	\noindent Pada tugas akhir ini masalah yang dibahas terfokus pada \textit{text alignment} yang merupakan tahap kedua dari \textit{task} \textit{plagiarism detection}. Dimana sepasang dokumen \textit{suspicous-document} dan \textit{source-document} atau dapat disebut sebagai \textit{pair} akan diolah dengan metode \textit{merging context seed} untuk membuktikan adanya tindak plagiat yang ada pada \textit{pair}. Kumpulan \textit{pair} ini didapat dari proses \textit{source retrieval} pada tahap awal \textit{plagiarism detection}. \\
+
+	\noindent Terdapat 5 kategori tindak plagiat yang akan dibuktikan, yaitu :
+
+	\begin{enumerate}
+		\item \textit{\textbf{No-Plagiarism}} \\
+		Pasangan dokumen tidak tedardapat tindak plagiat.
+		\item \textit{\textbf{No-Obfuscation}} \\
+		Pasangan dokumen melakukan tindak plagiat berupa \textit{copy-paste}, yaitu menggunakan kalimat sumber secara utuh tanpa melakukan perubahan apapun.
+		\item \textit{\textbf{Random-Obfuscation}} \\
+		Pasangan dokumen melakukan tindak plagit berupa penghapusan, penambahan, dan/atau penggantian kata pada kalimat. 
+		\item \textit{\textbf{Translation-Obfuscation}} \\
+		Dokumen yang ada ditranslasi ke bahasa lain, yang kemudian di translasi ke bahasa inggris.
+		\item \textit{\textbf{Summary-Obfuscation}}\\
+		Tindak plagiat berupa parafrase, yaitu merangkum intisari dari kalimat sumber.
+	\end{enumerate}
+	
+	\noindent Keluaran yang diharapkan dari sistem yang dibangun adalah letak kemunculan bagian yang terbukti plagiat pada \textit{suspicous-document} dan \textit{source-document} beserta nilai perfomansi dari pair yang ada.
+\end{document}

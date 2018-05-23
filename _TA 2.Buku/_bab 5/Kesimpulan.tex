@@ -1,0 +1,14 @@
+\documentclass[../Book.tex]{subfiles}
+ 
+\begin{document}
+\section{Kesimpulan}
+
+Sistem yang dibangun teralu sensitif dalam mengenali bagian yang ada pada dokumen untuk tipe plagiat tertentu. Hal ini terbukti dari nilai \textit{False Positive} yang tinggi pada pengujian untuk tipe plagiat \textit{No Obfuscation, Random Obfuscation, dan Translation Obfuscation}. Selain itu hal ini didapatkan karena pada tipe plagiat \textit{No Plagiarism} sistem masih menemukan adanya tindak plagiat pada pasangan dokumen. Walaupun dari tipe plagiat \textit{No Plagiarism} hanya 4\%. \\
+
+\noindent Nilai \textit{False Positive} yang tinggi ini dikarenakan pada proses \textit{merge}, \textit{seed} yang ada pada bagian yang di plagiat dan bagian yang tidak di plagiat ikut tergabung. Sehingga banyak bagian yang tidak plagiat, dianggap sebagai plagiat. Hal ini juga dapat dikarenakan masih banyak fitur yang tidak relevan yang terbangun. Ataupun penggunaan parameter yang kurang cocok untuk seluruh dokumen yang di proses. \\
+
+\noindent Pada tipe plagiat \textit{Random Obfuscation, dan Translation Obfuscation} sistem juga tidak mampu menangani adanya perubahan pola kata pada bagian yang diplagiat sehingga teralu banyak bagian plagiat yang tidak terdeteksi oleh sistem. \\ 
+
+\noindent Sedangkan pada tipe plagiat \textit{Summary Obfuscation}, dimana tipe plagiat ini merangkum bagian pada dokumen \textit{source}, sistem tidak dapat mengenali adanya tindak plagiat pada tipe plagiat ini secara baik. 
+
+\end{document}

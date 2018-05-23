@@ -1,0 +1,30 @@
+\documentclass[../Proposal.tex]{subfiles}
+ 
+\begin{document}
+	\section{Pengujian}
+	Pengujian sistem yang dibangun dilakukan menggunakan \textit{Tira\cite{tira}} yang mengacu pada paper acuan\cite{mcs-paper,acuan-3}. Dimana nilai perfomansi dihitung berdasarkan akurasi pengklasifikasian oleh sistem. Kelas klasifikasi yang ada adalah :
+	
+	\begin{enumerate}
+		\item \textit{\textbf{No-Plagiarism}}
+		\item \textit{\textbf{No-Obfuscation}}
+		\item \textit{\textbf{Random-Obfuscation}} 
+		\item \textit{\textbf{Summary-Obfuscation}} 
+	\end{enumerate}
+	
+	Dimana karakteristik dari kelas yang ada sudah dijelaskan pada Bab 2. Nilai akurasi didapatkan dengan menggunakan  \textit{Precision, Recall, F-Measure}. Dan pada akhir sistem, data yang akan di\textit{outputkan} ditunjukan oleh tabel \ref{tabel-perfomansi}.
+	
+	\begin{table}[h!]
+		\centering
+		\label{tabel-perfomansi}
+		\caption{Tabel Perfomansi Sistem}
+		\begin{tabular}{ | c | c | c | c | c | c | }
+			\hline
+			\textbf{Corpus} & \textbf{Pairs} & \textbf{PlagDet} & \textbf{Precision} & \textbf{Recall} & \textbf{Granularity} \\  
+			\hline
+			pan14-training-corpus &  &  & &  & 
+			\\ \hline 
+		\end{tabular}
+		
+		
+	\end{table}
+\end{document}

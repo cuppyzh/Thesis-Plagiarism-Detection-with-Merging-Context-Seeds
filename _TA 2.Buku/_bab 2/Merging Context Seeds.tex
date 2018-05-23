@@ -1,0 +1,139 @@
+\documentclass[../Proposal.tex]{subfiles}
+ 
+\begin{document}
+
+	\section{\textit{Merging Context Seed}}
+	\textit{Merging Context Seed} merupakan salah satu metode dengan pendekatan \textit{Text Alignment}. Metode ini memiliki tahapan yang serupa pada pendekatan \textit{Text Alignment}\cite{mcs, overview6} pada umumnya. \\
+	 
+	 \noindent Metode ini akan mengolah dokumen pada level karakter. Diketahui sebuah dokumen terdiri dari bagian-bagian (huruf, kata, atau kalimat) yaitu $P$, dimana $P = \{x_{i} : 0 \leq a \leq i < b \leq n \}$ dimana $x_{i} = (c,i), c \in C$. $C$ merupakan kumpulan simbol, dan $i$ merupakan letak kemunculan karakter. $P$ juga dapat dinotasikan dengan $P = [ x_{a_{i}}, x_{b_{i}} ]$
+
+	\subsection{\textit{Seed generation}}
+		Terdapat dokumen yang terindikasi bernama dokumen X \textit{(suspicious-document)} dan dokumen sumbernya bernama dokumen Y \textit{(source-document)}. Setiap karakter yang ada pada tiap dokumen dipetakan kedalam \textit{index map} untuk mengetahui letak kemunculan karakter dan fitur nantinya. \\
+
+		\subsubsection{\textit{Preprocessing}}
+		Kedua dokumen akan melalui proses \textit{preprocessing} dengan tahapan yaitu : 
+
+		\begin{enumerate}
+			\item Menghapus \textit{white space} dan \textit{enter space}.
+			\item Mengubah seluruh karakter yang ada menjadi huruf kecil.
+			\item Menghapus seluruh karakter yang tidak termasuk kedalam \textit{alphanumeric character}.
+			\item Menghapus seluruh \textit{stopwords}.
+		\end{enumerate}
+
+		\noindent Hal ini dilakukan untuk mengurangi jumlah fitur yang akan dihasilkan, sekaligus menghilangkan ada kemungkinan fitur yang tidak relevan sehingga membuat \textit{noise} pada data yang akan diolah. \\
+
+		\subsubsection{Ekstraksi Ciri }
+		\noindent Dokumen yang telah melalui tahap \textit{preprocessing} kemudian diekstraksi cirinya dengan menggunakan \textit{k-skip-n-grams} dengan nilai $k= 1, 2, 3, 4$ dan $n=2$, atau dapat disebut dengan $1-4 skip-bigram$ yang dinotasikan oleh Persamaan \ref{eq:feature-extraction}.
+
+		\begin{center}
+			\begin{equation}
+			\small
+				\varphi(x_{i}) = 
+					\begin{cases}
+						\{w_{\beta}\_w_{\alpha}\} \beta = \alpha - 4 ,..., \alpha & \quad x_{i} = w_{\alpha}[0] \\
+						0 & \quad \text{Lainnya} \\
+					\end{cases}
+					\label{eq:feature-extraction}
+			\end{equation}
+		\end{center}
+
+		\noindent Tabel \ref{featuremap} menunjukan \textit{feature map} yang berisikan fitur, \textit{token} dan letak kemunculan fitur dari kata :
+
+		\begin{center}
+			\textit{” A sentence is a group of words that are put together to mean something. ”}
+		\end{center}
+
+		% Please add the following required packages to your document preamble:
+		% \usepackage{booktabs}
+		\begin{table}[H]
+		\resizebox{\textwidth}{!}{%
+		\centering
+		\caption{\textit{Feature Map}}
+		\label{featuremap}
+		\begin{tabular}{@{}ccllll@{}}
+		\toprule
+		\textbf{Offset} & \textbf{Token} & \multicolumn{1}{c}{\textbf{f1}} & \multicolumn{1}{c}{\textbf{f2}} & \multicolumn{1}{c}{\textbf{f3}} & \multicolumn{1}{c}{\textbf{f4}} \\ \midrule
+		2               & sentence       & *\_sentence                     & *\_sentence                     & *\_sentence                     & *\_sentence                     \\
+		16              & group          & sentence\_group                 & *\_group                        & *\_group                        & *\_group                        \\
+		25              & words          & group\_words                    & sentence\_words                 & *\_words                        & *\_words                        \\
+		41              & put            & words\_put                      & group\_put                      & sentence\_put                   & *\_put                          \\
+		45              & together       & put\_together                   & words\_together                 & group\_together                 & sentence\_group                 \\
+		57              & mean           & together\_mean                  & put\_mean                       & words\_mean                     & group\_mean                     \\
+		61              & something      & mean\_something                 & together\_something             & put\_something                  & words\_something                \\ \bottomrule
+		\end{tabular}%
+		}
+		\end{table}
+		
+		\noindent Kolom $f1$ menunjukan fitur yang dihasilkan melalui proses \textit{1-skip-bigram}, sedangkan $f2$ menunjukan fitur yang dihasilkan melalui proses \textit{2-skip-bigram}, dan seterusnya. \textit{Offset} merupakan letak kemunculan kata/karakter pada kalimat sebelum melalui proses preprocessing, sehingga nantinya dapat diketahui letak pasti kata/karakter yang diplagiat. Sedangkan karakter $*$ digunakan sebagai penanda \textit{NULL} atau karakter kosong.
+
+		\subsubsection{\textit{Feature Relevance Filtering}}
+		Pada tahap ini fitur yang ada akan dihitung jumlah kemunculannya pada dokumennya. Apabila jumlah kemunculan fitur sesuai dengan \textit{threshold} \textit{threshold} $1 \leq |X(f)| \leq \varrho$ maka fitur akan disimpan, apabila melebihi \textit{threshold} maka fitur akan dihapus.
+
+		\subsubsection{\textit{Seed Generation}}
+		Seluruh fitur yang ada pada dokumen X dan dokumen Y dipetakan menjadi \textit{index map} dari XY \ref{eq:seed-generation}.
+
+			\begin{center}
+				\begin{equation}
+					\imath_{XY} : \digamma \to \wp(X \times Y), \quad f \mapsto \{(x_{i}, y_{j}) \quad | \quad f \in \varphi(x_{i}) \text{ and } f \in \varphi(j_{i})\}
+					\label{eq:seed-generation}
+				\end{equation}
+			\end{center}
+
+		\noindent Persamaan di atas akan memetakan seluruh fitur antara dokumen X dan dokumen Y. Lalu dari index map XY karakter yang mempunyai fitur yang sama pada kedua dokumen disebut sebagai \textit{passage reference}, sedangkan kumpulan dari \textit{passage reference} ini dapat disebut sebagai \textit{seed set}. \textit{Passage reference} ini merupakan titik awal untuk proses \textit{} dari pendekatan \textit{text alignment} pada metode \textit{Merging Context Seeds}. 
+
+		\subsection{\textit{Merging}}
+		\subsubsection{Kriteria \textit{Merge}}
+		\textit{Merging} merupakan proses dimana \textit{passage reference} yang didapat pada proses \textit{Seed Generation} akan di \textit{cluster}. Diketahui untuk setiap \textit{passage} pada dokumen X adalah \textit{Passage}, dimana $P = [ x_{a_{i}}, x_{b_{i}} ]$ yang merupakan bagian dari dokumen X. \\
+		
+		\noindent Untuk menghitung jarak antar \textit{passage} pada dokumen X, berlaku \ref{eq:jarak-p}.
+		
+		\begin{center}
+		\begin{equation}
+			dist(P_{1},P_{2}) = \text{min} \{|x_{1}-x_{2}|:a_{1} \leq x_{1} \leq b_{1}, a_{2} \leq x_{2} \leq b_{2} \} 
+			\label{eq:jarak-p}
+		\end{equation}  
+		\end{center}
+		
+		\noindent Untuk $P_{1} = [ x_{a_{1}}, x_{b_{1}} ] $ dan $P_{2} = [ x_{a_{2}}, x_{b_{2}} ]$. \\
+		
+		\noindent Diketahui pula, \textit{perimeter} atau luas dari satu \textit{passage reference} adalah \ref{eq:perimeter}
+		
+		\begin{center}
+		\begin{equation}
+			\pi(r) = 2 (b - a) + 2 (d - c) \quad \text{jika,} r=[x_{a}, x_{b}] \times [y_{c}, y_{d}] \text{ dan } \pi(0) = 0
+			\label{eq:perimeter}
+		\end{equation}  
+		\end{center}
+		
+		\noindent Sedangkan untuk menghitung jarak antara 2 \textit{passage reference}, $P_{1} \times Q_{1},P_{2} \times Q_{2} \subseteq X \times Y$ adalah \ref{eq:jarak-pr} 
+		
+		\begin{center}
+			\begin{equation}
+			dist(P_{1} \times Q_{1},P_{2} \times Q_{2}) = \cfrac{2 \times dist(P_{1},P_{2}) + 2 \times dist(Q_{1},Q_{2})}{\sigma + \pi(P_{1} \times Q_{1}) + \pi(P_{2} \times Q_{2})}
+			\end{equation}
+			\label{eq:jarak-pr}  
+		\end{center}
+	
+		\subsubsection{\textit{Clustering}}
+		Setelah mengetahui kriteria proses \textit{merging} maka \textit{passage reference} dapat di kluster menggunakan \textit{single linkage clustering} yang merupakan bagian dari \textit{Agglomerative Clustering}. \textit{Clustering} dilakukan hingga tidak ada jarak antar \textit{cluster/passage reference} yang kurang dari batas $\tau \geq 0$.
+		 
+		\subsection{\textit{Filtering}}
+		Membuang seluruh \textit{cluster} yang panjangnya kurang dari $\nu$, dan sisa \textit{cluster} yang ada akan dianggap sebagai bagian yang terbukti melakukan plagiat. \textit{Cluster} yang tersisa membangun 2 buah \textit{Passage} $P = [x_{c_{i_{min}}}, x_{c_{i_{max}}}]$ untuk dokumen \textit{suspicious} dan dokumen \textit{source}.   Membuat \textit{output} berupa lokasi karakter awal plagiat dan lokasi akhir karakter plagiat pada dokumen X dan dokumen Y. \\
+		
+		\noindent Jika terdapat \textit{passage} yang terdeteksi plagiat maka akan dianggap $r$ untuk set $R$. $r$ dapat direpresentasikan sebagai : 
+		
+		\begin{center}
+			\begin{table}[H]
+				\centering
+				\caption{Format $r$}
+				\label{my-label}
+				\begin{tabular}{|l|l|l|l|}
+					\hline
+					Suspicous $P$ Start & Suspicious $P$ End & Source $P$ Start & Source $P$ End \\ \hline
+				\end{tabular}
+			\end{table}	
+		\end{center}
+	
+
+
+\end{document}

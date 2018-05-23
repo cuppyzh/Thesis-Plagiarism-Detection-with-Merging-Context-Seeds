@@ -1,0 +1,18 @@
+\documentclass[../Proposal.tex]{subfiles}
+ 
+\begin{document}
+	\section{\textit{Merging Context Seed}}
+	\textit{Merging Context Seed} adalah salah satu metode yang ditawarkan oleh pendekatan \textit{Text Alignment}. Pada metode ini juga diterapkan tahapan yang umum digunakan oleh pendekatan \textit{Text Alignment} yaitu\cite{mcs-paper,overview-textalignment-2013,overview6} :
+	
+	\begin{enumerate}
+		\item \textit{Seed generation} : Terdapat dokumen yang terindikasi beranama dokumen X dan dokumen sumbernya bernama dokumen Y. Kemudian membagi kedua dokumen menjadi bagian-bagian kecil yang dapat diukur. \\
+		Pada tahap ini \textit{N-Gram} digunakan. Selain itu, pada tahap ini dokumen X akan diubah selhuruhnya ke huruf kecil dan menghilangkan \textit{tab}, penghentian kata, dan seluruh karakter yang tidak termasuk \textit{alphanumeric}. Dan dari ciri yang ada, dipilih ciri yang mempunyai makna. Sedangkan untuk dokumen Y, cirinya diesktrak berdasarkan ciri yang sudah diekstrak dari dokumen X.
+		
+		\item \textit{Merging} : Menggabungkan 2 bagian X dan Y yang mempunyai kemiripan. Tahap ini dilakukan hingga seluruh \textit{case} selesai di \textit{merge}\cite{merge}. \\
+		Penggabungan bagian X dan Y juga mempunyai karakteristik tertentu dan akan terus mencari irisan antara ciri dokumen X dan dokumen Y hingga tidak ada pasangan / \textit{pairs} yang memiliki nilai kurang dari 0 atau konstanta yang ditentukan.
+		
+		\item \textit{Extraction} dan \textit{Filtering} : Pada tahap ini, setiap bagian atau \textit{passages} yang panjangnya kurang dari 15 kata akan dihilangkan. Dan kemudian tahap berikutnya adalah mengklasifikasikan hasil proses \textit{merging} ke beberapa kelas yang ada.
+	\end{enumerate}
+	
+	\noindent Dan penyelesaian masalah yang akan diselesaikan dengan algoritma ini adalah bagaimana mendapatkan nilai \textit{pladget(S,R)} yang tinggi, dimana \textit{S merupakan kumpulan kasus plagiat} dan \textit{R merupakan kumpulan deteksi yang dilakukan}.
+\end{document}

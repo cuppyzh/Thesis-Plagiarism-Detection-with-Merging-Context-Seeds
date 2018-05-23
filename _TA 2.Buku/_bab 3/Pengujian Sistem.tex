@@ -1,0 +1,32 @@
+\documentclass[../Book.tex]{subfiles}
+ 
+\begin{document}
+\section{Pengujian Sistem}
+Pengujian sistem dilakukan dengan 4 skenario. Skenario ini didapat dari jenis plagiat yang dijelaskan pada Bab 1 dan Bab 2. 
+
+\begin{enumerate}
+	\item Skenario 1 : 500 \textit{pair} berisi pasangan dokumen \textit{\textbf{No Plagiarism}}.
+	\item Skenario 2 : 500 \textit{pair} berisi pasangan dokumen \textit{\textbf{No Obfuscation}}.
+	\item Skenario 3 : 500 \textit{pair} berisi pasangan dokumen \textit{\textbf{Random Obfuscation}}.
+	\item Skenario 4 : 500 \textit{pair} berisi pasangan dokumen \textit{\textbf{Translation Obfuscation}}.
+\end{enumerate}
+
+Pada akhir pengujian setiap skenario akan dianalisis dan dihitung perfomansi dari sistem ke dalam tabel berikut :
+
+% Please add the following required packages to your document preamble:
+% \usepackage{booktabs}
+\begin{table}[H]
+	\centering
+	\caption{My caption}
+	\label{my-label}
+	\begin{tabular}{@{}lllll@{}}
+		\toprule
+		Tipe Plagiat            & Jumlah Data & \textit{Precision} & \textit{Recall} & \textit{F1} \\ \midrule
+		No Plagiarism           &             &                    &                 &             \\
+		No Obfuscation          &             &                    &                 &             \\
+		Random Obfuscation      &             &                    &                 &             \\
+		Translation Obfuscation &             &                    &                 &             \\ \bottomrule
+	\end{tabular}
+\end{table}
+
+\end{document}

@@ -1,0 +1,44 @@
+\documentclass[../Proposal.tex]{subfiles}
+ 
+\begin{document}
+	\section{\textit{N-Gram}}
+	\textit{N-Gram} merupakan suatu metode yang digunakan untuk memotong-motong suatu kata menjadi beberapa bagian. Bagian yang dipotong dimulai dari panjang karaketernya sebanyak 1 hingga \textit{k}. Sebagai contoh, kita menggunakan kata "Plagiat", maka \textit{N-Gram} yang didapatkan adalah sebagai berikut : \\
+	
+	\indent Unigram : P, L, A, G, I, A, T \\
+	
+	\indent Bigram : \_P, PL, LA, AG, GI, IA, AT, T\_ \\	
+	
+	\indent Trigram : \_PL, PLA, LAG, AGI, GIA, IAT, AT\_, T\_\_ \\
+	
+	\indent Quad : \_PLA, PLAG, LAGI, AGIA, GIAT, IAT\_, T\_\_\_ \\
+	
+	Karakter "\_" melambangkan spasi didepan dan akhir kata.
+	
+		\subsection{\textit{Learning}}
+		Setelah proses diatas dilakukan, maka bagian yang dipecah akan di masukan ke proses \textit{learning} yang tahapnnya adalah :
+		\begin{enumerate}
+			\item Fitur atau bagian yang dipotong di ubah ke betuk \textit{N-Gram} dengan n=1,2,3,4 dan seterusnya.
+			\item Memasukan tiap-tiap \textit{N-Gram} yang didapatkan ke \textit{hash table}.
+			
+			\begin{table}[h!]
+				\centering
+				\begin{tabular}{ | c | c | }
+					\hline
+					\textbf{\textit{N-Gram}} & \textbf{\textit{Counter}} \\ 
+					\hline PL & 1 \\  
+					\hline LA & 1 \\
+					\hline AG & 1 \\  
+					\hline .. & ..  
+					\\ \hline 
+				\end{tabular}
+				\caption{Contoh Tabel Hash}
+				\label{tabel-hash}
+			\end{table}
+			
+			\item Jumlah \textit{counter} akan ditambah apabila ditemukan pola yang sama pada ekstraksi ciri pada kata lainnya. Gambar \ref{tabel-hash} menunjukan contoh \textit{table hash} dari ciri diatas.
+			\item Setelah dihitung urutkan \textit{N-Gram} secara \textit{descending}.
+		\end{enumerate}
+	
+		\subsection{\textit{Testing}}
+		\textit{Testing} pada \textit{N-Gram} biasanya digunakan untuk menentukan kategori suatu dokumen berdasarkan kemiripan dengan dokumen lain yang sudah dikategorisasikan. Hal ini dilakukan dengan cara mengukur jarak dengan mekanisme \textit{out-of-place measure}\cite{ngram-java}. 
+\end{document}

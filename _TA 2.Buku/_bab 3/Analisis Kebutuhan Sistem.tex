@@ -1,0 +1,42 @@
+\documentclass[../Book.tex]{subfiles}
+ 
+\begin{document}
+\section{Analisis Kebutuhan}
+Analisis kebutuhan mencakup dari penentuan spesifikasi perangkat yang akan digunakan, baik perangkat lunak maupun perangkat keras.
+
+\subsection{Kebutuhan Fungsional}
+Kebutuhan fungsional sistem diantaranya adalah : 
+\begin{enumerate}
+	\item Sistem dapat membaca \textit{input plain-text} yaitu \textit{suspicious-document}, \textit{source-document}, dan \textit{pairs}.
+	\item Sistem mengolah data yang masuk ke dalam sistem dengan metode \textit{Skipwrod-grams}, \textit{Merging Context Seeds} dan \textit{Single-linkage Clustering}.
+	\item Menampilkan \textit{log}, dan hasil akhir berupa \textit{highlight} pada \textit{suspicious-document} dan \textit{source-document} apabila ditemukan tindak plagiat.
+\end{enumerate}
+
+\subsection{Kebutuhan Non-Fungsional}
+
+\subsubsection{Spesifikasi Perangkat Lunak}
+Perangkat lunak yang akan digunakan untuk tugas akhir ini adalah sebagai berikut : 
+\begin{enumerate}
+	\item Sitem Operasi : Windows 10 64-bit.
+	\item Bahasa Pemrograman : Python 2.7 \\
+	Daftar library yang diperlukan untuk menjalankan sistem yang dibangun ditunjukan pada Tabel \ref{tab:lib}.
+	
+	% Please add the following required packages to your document preamble:
+	% \usepackage{booktabs}
+	\begin{table}[H]
+		\centering
+		\caption{Daftar \textit{Library} yang Digunakan}
+		\label{tab:lib}
+		\begin{tabular}{@{}ll@{}}
+			\toprule
+			\textit{Library}               & Fungsi                                 \\ \midrule
+			nltk                  & Daftar \textit{stopwords} dalam bahasa Inggris  \\
+			xml.etree.ElementTree & Membaca informasi xml dari \textit{datasets}         \\
+			pyexcel\_xls          & Menyimpan hasil pengujian ke dalam file Excel \\ \bottomrule
+		\end{tabular}
+	\end{table}
+	
+	\item \textit{Tools :} Sublime Text 3, Git Bash.
+	
+\end{enumerate}
+\end{document}

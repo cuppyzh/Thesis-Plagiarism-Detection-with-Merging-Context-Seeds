@@ -1,0 +1,11 @@
+\documentclass[../Book.tex]{subfiles}
+ 
+\begin{document}
+\section{Analisis Hasil}
+Dari pengujian yang dilakukan untuk \textit{datasets} \textit{no obfuscation, random obfuscation, translation, dan summary obfuscation}, sistem yang dibangun masih mengalami masalah dalam proses \textit{merging}. Hal ini dikarenakan oleh banyak bagian pada dokumen yang diolah yang tidak termasuk plagiat dideteksi sebagai plagiat. Hal ini disebabkan oleh beberapa hal. Seperti fitur yang dihasilkan teralu banyak dan saling berdekatan sehingga pada proses \textit{merging} banyak fitur yang tidak diinginkan ikut terseret menjadi fitur yang dianggap plagiat. Jarak minimal yang teralu besar juga membuat sistem yang dibangun teralu sensitif, sehingga fitur yang di-\textit{merge} semakin menumpuk. Hal ini dapat dilihat dari hasil pengujian dimana nilai \textit{false positive} pada \textit{datasets} diatas yang tinggi. \\
+
+\noindent Untuk \textit{datasets} \textit{no plagiarism} sistem sudah mampu menangani tipe plagiat ini. Karena dokumen yang dideteksi plagiat hanya sedikit. Adanya dokumen yang dianggap plagiat diakibatkan karena masih teralu banyak fitur yang dihasilkan oleh sistem. \\
+
+\noindent Sedangkan untuk \textit{datasets} \textit{summary obfuscation} fitur yang dihasilkan oleh sistem untuk \textit{datasets} ini teralu sedikit, sehingga saat proses \textit{merge} sistem tidak mampu fitur dari dokumen plagiat kedalam \textit{cluster}. Sehingga nilai \textit{false negative}, atau bagian plagiat yang dapat dideteksi oleh sistem kecil.
+
+\end{document}

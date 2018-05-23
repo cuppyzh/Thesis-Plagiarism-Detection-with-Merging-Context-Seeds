@@ -1,0 +1,41 @@
+\newcommand{\source}[1]{\caption*{Sumber: {#1}} }
+
+\newcommand{\singlesignature}[2]{
+	\hfill
+	\parbox{6cm}{
+	\tglefektif{} \\
+	Yang membuat pernyataan,\\
+	\\[3cm]
+	#1\\
+	NIM. #2\\[1cm]
+	}
+}
+
+\newcommand{\doublesignature}[6]{
+	\parbox{\linewidth}{
+		\parbox{0.48\linewidth}{
+			\centering
+			#1
+		}
+		\hfill
+		\parbox{0.48\linewidth}{
+			\centering
+			#2
+		}
+	}\\[3cm]
+	\parbox{\linewidth}{
+		\parbox{0.48\linewidth}{
+			\centering
+			\rule{0.5\linewidth}{1pt}\\
+			#3\\
+			#4 
+		}
+		\hfill
+		\parbox{0.48\linewidth}{
+			\centering
+			\rule{0.5\linewidth}{1pt}\\
+			#5\\
+			#6
+		}
+	}
+}

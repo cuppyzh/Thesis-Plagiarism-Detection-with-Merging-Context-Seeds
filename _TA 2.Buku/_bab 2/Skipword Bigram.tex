@@ -1,0 +1,51 @@
+\documentclass[../Proposal.tex]{subfiles}
+ 
+\begin{document}
+	\section{\textit{Skip Gram}}
+	\textit{Skip Gram} atau yang sering disebut dengan k-skip-n-grams merupakan salah satu metode untuk mengekstraksi ciri dari suatu dokumen yang juga merupakan bentuk lain dari \textit{N-Gram}. Dengan \textit{skip gram} rangkaian karakter/kata yang ada pada dokumen akan di lompati untuk mendapatkan fitur. \textit{k} menunjukan jumlah karakter/kata yang dilompati. Sedangkan \textit{n} menunjukan panjang karakter untuk satu buah fitur. Fitur hasil dari metode k-skip-n-grams sendiri dapat didefinisikan pada Persamaan \ref{eq:k-skip-n-grams}\cite{skipgram}.
+
+	\begin{center}
+	\begin{equation}
+		\{ w_{i_{1}}, w_{i_{2}}, ... w_{i_{n}} | \sum_{j=1}^{n} i_{j}-i_{j=1} < k \}
+		\label{eq:k-skip-n-grams}
+	\end{equation} 
+	\end{center}
+
+	\noindent 
+
+	\noindent Sebagai contoh, kalimat : 
+
+	\begin{center}
+		\textit{" A sentence is a group of words that are put together to mean something. "}
+	\end{center}
+
+	\noindent Apabila kalimat diatas di ekstraksi menggunakan 2-skip-2-grams maka akan didapat fitur sesuai pada Tabel \ref{generated-feature} :
+
+
+		\begin{table}[H]
+			\small
+			\caption{Contoh Ekstraksi Ciri dengan 2-skip-2-grams}
+			\label{generated-feature}
+			\centering
+			\begin{tabular}{cl}
+				\hline
+				\multicolumn{2}{c}{Daftar Fitur}   \\ \hline
+				\multicolumn{2}{c}{A\_IS}          \\
+				\multicolumn{2}{c}{SENTENCE\_A}    \\
+				\multicolumn{2}{c}{IS\_GROUP}      \\
+				\multicolumn{2}{c}{A\_OF}          \\
+				\multicolumn{2}{c}{GROUP\_WORDS}   \\
+				\multicolumn{2}{c}{OF\_THAT}       \\
+				\multicolumn{2}{c}{WORDS\_ARE}     \\
+				\multicolumn{2}{c}{THAT\_PUT}      \\
+				\multicolumn{2}{c}{ARE\_TOGETHER}  \\
+				\multicolumn{2}{c}{PUT\_TO}        \\
+				\multicolumn{2}{c}{TOGETHER\_MEAN} \\
+				\multicolumn{2}{c}{TO\_SOMETHING}  \\
+				\multicolumn{2}{c}{MEAN\_*}        \\
+				\multicolumn{2}{c}{SOMETHING\_*}   \\ \hline
+			\end{tabular}
+
+		\end{table}
+	
+\end{document}

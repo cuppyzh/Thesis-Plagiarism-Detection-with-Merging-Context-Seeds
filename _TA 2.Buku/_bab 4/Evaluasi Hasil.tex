@@ -1,0 +1,110 @@
+\documentclass[../Book.tex]{subfiles}
+ 
+\begin{document}
+\section{Evaluasi Hasil}
+\noindent Tabel \ref{hasil-runing} merupakan hasil pengujian sistem terhadap data \textit{\textbf{No Obfuscation, Random Obfuscation, Translation Obfuscation}} dan \textit{\textbf{Summary Obfuscation}} pada sistem yang dibangun.
+\begin{table}[H]
+	\centering
+	\caption{Perfomansi Sistem Pada \textit{Level} Karakter}
+	\label{hasil-runing}
+	\begin{tabular}{@{}lllll@{}}
+		\toprule
+		Tipe Plagiat            & Jumlah Data & \textit{Precision} & \textit{Recall} & \textit{F1} \\ \midrule
+		No Obfuscation          & 952            & 0.871                     & 0.472                 & 0.612             \\
+		Random Obfuscation      & 998            & 0.619                    & 0.627                 & 0.623             \\
+		Translation Obfuscation & 992            & 0.656                   & 0.363               & 0.468             \\ 
+		Summary Obfuscation      & 1185            & 0.107                    & 0.860                 & 0.190             \\\bottomrule
+	\end{tabular}
+\end{table}
+
+\noindent Sedangkan Tabel \ref{hasil-runing2} merupakan hasil pengujian sistem terhadap data \textit{\textbf{No Plagiarism}}.
+% Please add the following required packages to your document preamble:
+% \usepackage{booktabs}
+\begin{table}[H]
+	\centering
+	\caption{Jumlah Deteksi pada \textit{No Plagiarism}}
+	\label{hasil-runing2}
+	\begin{tabular}{@{}llll@{}}
+		\toprule
+		Tipe Plagiat & Jumlah Data & Terdeteksi Plagiat & \% \\ \midrule
+		No Plagiat   & 1000        & 40                 & 96\%      
+	\end{tabular}
+\end{table}
+
+\subsection{No Plagiarism}
+
+\noindent Pada Gambar \ref{fig:persnoplag} menunjukan persentase jumlah dokumen yang terdeteksi plagiat pada tipe plagiat \textit{No Plagiarism}. Berdasarkan hasil yang didapat, sistem masih mendeteksi plagiat pada 40 dari 1000 dokumen yang ada pada \textit{datasets} \textbf{\textit{No Plagiarism}}. Sehingga dapat dikatakan bahwa sistem masih teralu sensitif dalam mengkategorikan dokumen kedalam kategori plagiat.
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}
+	
+	\pie[color={black!10, black!30, black!50}]
+	{4/Terdeteksi Plagiat, 96/Tidak Terdeteksi Plagiat}
+	\end{tikzpicture}
+	\caption{Persentase Nilai Perfomansi Tipe Plagiat \textbf{\textit{No Plagiarism}}}
+	\label{fig:persnoplag}
+\end{figure}
+
+\subsection{No Obfuscation}
+
+\noindent Pada Gambar \ref{fig:persnoobs} menunjukan persentase nilai perfomansi untuk tipe plagiat \textbf{No Obfuscation}. Dari hasil yang didapat, sistem mendeteksi bagian yang dianggap plagiat teralu luas/teralu banyak dari yang diharapkan, sehingga nilai \textit{False Positive} yang didapat cukup tinggi, sebanyak $49\%$. Dimana bagian yang tidak plagiat dianggap plagiat oleh sistem. Nilai \textit{False Positive} yang didapat bahkan melebihi nilai \textit{True Positive} yaitu $44\%$. Sedangkan untuk bagian plagiat yang tidak terdeteksi oleh sistem \textit{False Negative} dapat dikatakan cukup kecil, yaitu nilai $7\%$. Hingga hasil akhir yang didapat adalah nilai \textit{precision} 0.871, \textit{recall} 0.472 dan $_F{1}$ 0.612.
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}
+	
+	\pie[color={black!10, black!30, black!50}]
+	{44/True Positive, 49/False Positive, 7/False Negative}
+	\end{tikzpicture}
+	\caption{Persentase Nilai Perfomansi Tipe Plagiat \textbf{\textit{No Obfuscation}}}
+	\label{fig:persnoobs}
+\end{figure}
+
+\subsection{Random Obfuscation}
+
+\noindent Sedangkan untuk \textit{datasets} \textit{Random Obfuscation}, seperti yang ditunjukan Gambar \ref{fig:persranobs} penurunan perfomansi pada nilai \textit{precision}. Penurunan nilai ini dikarenakan sistem tidak dapat mendeteksi bagian yang plagiat secara baik. Sehingga nilai \textit{False Negative} yang didapat tinggi, yaitu $28\%$. Hingga hasil akhir yang didapat adalah nilai \textit{precision} 0.619, \textit{recall} 0.627 dan $_F{1}$ 0.623.
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}
+	
+	\pie[color={black!10, black!30, black!50}]
+	{45/True Positive, 27/False Positive, 28/False Negative}
+	\end{tikzpicture}
+	\caption{Persentase Nilai Perfomansi Tipe Plagiat \textbf{\textit{Random Obfuscation}}}
+	\label{fig:persranobs}
+\end{figure}
+
+\subsection{Translation Obfuscation}
+
+\noindent Untuk \textit{datasets Translation Obfuscation} berdasarkan Gambar \ref{fig:perstransobs}, menunjukan bahwa sistem yang dibangun masih mendeteksi bagian yang plagiat teralu sensitif, sehingga nilai \textit{False Positive} yang didapat cukup tinggi yaitu $53\%$ dan hanya mendapat nilai \textit{True Positive} sebesar $31\%$. Hingga hasil akhir yang didapat adalah nilai \textit{precision} 0.656, \textit{recall} 0.363 dan $_F{1}$ 0.468.
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}
+	
+	\pie[color={black!10, black!30, black!50}]
+	{31/True Positive, 53/False Positive, 16/False Negative}
+	\end{tikzpicture}
+	\caption{Persentase Nilai Perfomansi Tipe Plagiat \textbf{\textit{Translation Obfuscation}}}
+	\label{fig:perstransobs}
+\end{figure}
+
+\subsection{Summary Obfuscation}
+
+\noindent Pada tipe plagiat \textit{Summary Obfuscation} sistem dapat dikatakan tidak mampu mengatasi masalah yang ada. Hal ini dapat dilihat pada Gambar \ref{fig:perssumobs}. Nilai \textit{True Positive} yang didapat hanya $10\%$. Sedangkan nilai \textit{False Negative} sebanyak $88\%$. Yang berarti sistem tidak mendeteksi hampir seluruh bagian yang diplagiat. Hingga hasil akhir yang didapat adalah nilai \textit{precision} 0.107, \textit{recall} 0.860 dan $_F{1}$ 0.190.
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}
+	
+	\pie[color={black!10, black!30, black!50}]
+	{10/True Positive, 2/False Positive, 88/False Negative}
+	\end{tikzpicture}
+	\caption{Persentase Nilai Perfomansi Tipe Plagiat \textbf{\textit{Summary Obfuscation}}}
+	\label{fig:perssumobs}
+\end{figure}
+
+
+\end{document}

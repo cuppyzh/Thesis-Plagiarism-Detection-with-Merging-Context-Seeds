@@ -1,0 +1,34 @@
+\documentclass[../Proposal.tex]{subfiles}
+ 
+\begin{document}
+	\section{Rumusan Masalah}
+	\noindent Masalah yang dihadapi disini adalah bagaimana mendeteksi tindak plagiat pada suatu dokumen. Untuk menyelesaikan masalah tersebut pada dasarnya memerlukan 2 \textit{task} utama yaitu \textit{Source Retrieval} dan \textit{Text Alignment}. \\
+	
+	\noindent Namun pada tugas akhir ini hanya akan membahas proses \textit{Text Alignment} untuk mendeteksi dua dokumen yang terindikasi plagiat. Dua dokumen itu adalah, dokumen yang mencurigakan, dan dokumen sumber. Dan untuk menentukan dua dokumen tadi dilakukan pada tahap \textit{Source Retrieval} yang pada tugas akhir ini tidak dilakukan, dikarenakan \textit{pairs} atau data berupa pasangan dokumen yang terindikasi dan sumbernya sudah diberikan sebelumnya. \\
+	
+	\noindent Dan untuk menyelesaikan masalah diatas digunakan metode \textit{Merging Context Seed} untuk memeriksa kebenaran indikasi plagiat dari \textit{pairs} yang ada.
+	
+	\subsection{\textit{Input}}
+	\textit{Input} pada kasus ini adalah :
+	\begin{enumerate}
+		\item Kumpulan dokumen yang terindikasi plagiat.
+		\item Kumpulan dokumen yang menjadi sumber plagiat dokumen diatas.
+		\item \textit{Pairs}, yang berisikan informasi pasangan dokumen yang terindikasi plagiat beserta dokumen sumbernya.	
+	\end{enumerate}
+	
+	\subsection{\textit{Output}}
+	\textit{Output} yang akan dihasilkan dari tugas akhir ini adalah klasifikasi berdasarkan \textit{Pairs}. Kelas klasifikasi yang ada adalah sebagai berikut :
+	
+	\begin{enumerate}
+		\item \textit{\textbf{No-Plagiarism}} \\
+		Pasangan dokumen tidak tedardapat tindak plagiat sama sekali.
+		\item \textit{\textbf{No-Obfuscation}} \\
+		Dokumen terindikasi melakukan tindak plagiat berupa \textit{copy-paste}, yaitu mengunakan kalimat sumber secara utuh tanpa melakukan perubahan apapun.
+		\item \textit{\textbf{Random-Obfuscation}} \\
+		Pada dokumen yang terindikasi terdapat tindak plagit berupa penghapusan ataupun penambahan kata pada kalimat yang sumber.
+		\item \textit{\textbf{Summary-Obfuscation}} \\
+		Terdapat tindak plagiat berupa peringkasan kalimat sumber.
+	\end{enumerate}
+	
+	Selain kelas klasifikasi, pada tugas akhir ini juga akan menampilkan bagian pada dokumen yang terindikasi tindak plagiat.
+\end{document}

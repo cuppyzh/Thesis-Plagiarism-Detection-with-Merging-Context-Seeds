@@ -1,0 +1,36 @@
+\documentclass[../Proposal.tex]{subfiles}
+ 
+\begin{document}
+\section{Perfomansi}
+Untuk menghitung perfomansi\cite{mcs,tira} dari sistem yang dibangun, diketahui $S$ sebagai kumpulan kasus plagiat yang didapat dari data yang ada pada \textit{datasets}. Dan $R$ yang merupakan kasus plagiat yang didapatkan dari sistem. Kedua set $S$ dan $R$ akan dicari irisan tiap anggotanya, dengan $S \cdot R = \{s \cap r | s \in S, r \in R\}$. Apabila terdapat irisan berarti sistem berhasil mendeteksi $R$ sesuai dengan \textit{datasets} $S$. \\
+
+\noindent Didefinisikan \textit{perimeter} yang digunakan untuk menghitung luas bagian \textit{passage reference} sebagai $\pi(r) = 2(b-a) + 2(d-c);  \text{ dimana } r = [x_{a}, x_{b}] x [y_{c}, y_{d}] $
+
+\subsection{Precision}
+\textit{Precision} merupakan nilai yang menunjukan tingkat kesesuaian atau relevansi prediksi sistem yang mengacu pada \textit{datasets}. Untuk menghitung nilai \textit{precision} dari pasangan dokumen yang sudah diolah menggunakan Persamaan \ref{eq:prec}
+\begin{center}
+	\begin{equation}
+		prec(S,R)\ =\ \cfrac{\pi(S\cdot R)}{\pi(R)}
+		\label{eq:prec}
+	\end{equation}
+\end{center}
+
+
+\subsection{Recall}
+\textit{Recall} merupakan jumlah seluruh data relevan/sesuai yang berhasil diprediksi oleh sistem. Untuk menghitung nilai \textit{recall} menggunakan Persamaan \ref{eq:rec}
+\begin{center}
+	\begin{equation}
+		rec(S,R)\ =\ \cfrac{\pi(S\cdot R)}{\pi(S)}
+		\label{eq:rec}
+	\end{equation}
+\end{center}+
+$F_{1} Score$ merupakan nilai akurasi sistem dalam kemampuannya untuk menggolongkan \textit{passage} ke dalam kelas plagiat. Untuk menghitung nilai $F_{1}$ digunakan Persamaan \ref{eq:f1}
+\begin{center}
+	\begin{equation}
+	F_{1}(S,R) = 2 \cdot \cfrac{prec(S,R) \cdot rec(S,R)}{prec(S,R) + rec(S,R)}
+	\label{eq:f1}
+	\end{equation}
+\end{center}
+
+
+\end{document}
